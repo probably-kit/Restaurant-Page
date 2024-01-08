@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
+    "start": "webpack serve --open",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "sass-loader": "^13.3.3",
     "style-loader": "^3.3.3",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
