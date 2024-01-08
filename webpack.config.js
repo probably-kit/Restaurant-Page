@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'Restaurant-Page' 
+    publicPath: 'probably-kit/Restaurant-Page' 
   },
   module: {
     rules: [
