@@ -5,18 +5,20 @@ import menuTab from './tabs/menu';
 import contactTab from './tabs/contact';
 import './styles/main.css';
 
+
+
 function createTabNavigation() {
   const tabs = { home: homeTab, menu: menuTab, contact: contactTab };
   const content = document.getElementById('content');
 
   for (let tab in tabs) {
-    const btn = document.createElement('button');
-    btn.innerText = tab;
-    btn.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.innerText = `${tab} `;
+    link.addEventListener('click', () => {
       content.innerHTML = '';
       content.appendChild(tabs[tab]());
     });
-    document.body.appendChild(btn);
+    document.body.appendChild(link);
   }
 }
 
