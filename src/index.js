@@ -5,22 +5,16 @@ import menuTab from './tabs/menu';
 import contactTab from './tabs/contact';
 import './styles/main.css';
 
-
-
-function createTabNavigation() {
-  const tabs = { home: homeTab, menu: menuTab, contact: contactTab };
+document.addEventListener('DOMContentLoaded', () => {
   const content = document.getElementById('content');
+  content.appendChild(homeTab());
 
-  for (let tab in tabs) {
-    const link = document.createElement('a');
-    link.innerText = `${tab} `;
-    link.addEventListener('click', () => {
+  document.body.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A' && event.target.classList.contains('nav-link')) {
+      event.preventDefault();
+      const tabId = event.target.dataset.tab;
       content.innerHTML = '';
-      content.appendChild(tabs[tab]());
-    });
-    document.body.appendChild(link);
-  }
-}
-
-createTabNavigation();
-
+      content.appendChild(tabId === 'home' ? homeTab() : (tabId === 'menu' ? menuTab() : contactTab()));
+    }
+  });
+});
